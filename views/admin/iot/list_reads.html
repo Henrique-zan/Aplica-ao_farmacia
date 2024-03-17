@@ -1,0 +1,28 @@
+
+{% extends "iot/iot_index.html" %}
+{% import 'utils/forms.html' as forms %}
+
+{% block main %}
+
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg" >
+
+    <div class="container">
+        <div class="container_container">
+            <div class="container_read_cel">
+                    <span class="title_temp">Temperature</span>
+                    <span class="number_temp">{{ reads.temperatura }}°</span>
+                </div>
+                <div class="container_read_hum">
+                    <span class="title_hum">Humidity</span>
+                    <span class="number_hum">{{ reads.humidade }}%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form method="POST" action="/admin/iot/publish_1" style="display: flex;justify-content: center;">
+        <input class="btn btn-primary" type="submit" value="Read" style="box-shadow: black 0px 5px 5px;"/> 
+    </form>
+</main>
+
+
+{% endblock %}

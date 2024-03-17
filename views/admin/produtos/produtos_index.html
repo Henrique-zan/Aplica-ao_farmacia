@@ -1,0 +1,35 @@
+{% extends "admin/admin_base.html" %}
+{% block main %}
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    
+    <div class="container-fluid px-4">
+        <h1 class="mt-4">Admin IOT</h1>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active"><a href="/admin/">Dashboard</a></li>
+            <li class="breadcrumb-item active">Produtos Dashboad</li>
+        </ol>
+        <div class="row">
+            <div class="col-md-4 col-xl-3">
+                <div class="card bg-c-yellow order-card">
+                    <div class="card-block">
+                        <h6 class="m-b-20">Listar todos os produtos</h6>
+                        <h2 class="text-right" ><i style="margin-right: 10px;" class="bi bi-person-fill f-left"></i></h2>
+                        <a href="/admin/produtos/view_produtos" class="btn btn-outline-dark" style="color: white;">Listar produto</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 col-xl-3">
+                <div class="card bg-c-pink order-card" style="margin-left: 10px;">
+                    <div class="card-block">
+                        <h6 class="m-b-20">Cadastrar novo produto</h6>
+                        <h2 class="text-right" ><i style="margin-right: 10px;" class="bi bi-person-plus-fill f-left"></i></h2>
+                        <a href="/admin/produtos/register_produto" class="btn btn-outline-dark" style="color: white;">Cadastrar produto</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% block content %} {% endblock content%}
+</main>
+{% endblock main%}

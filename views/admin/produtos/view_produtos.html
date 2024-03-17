@@ -1,0 +1,73 @@
+{% extends "produtos/produtos_index.html" %}
+{% block main %}
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    <div class="container-fluid px-4">
+        <h2 class="mt-4">Listagem de Produtos</h2>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active"><a href="/admin/">Dashboard</a></li>
+            <li class="breadcrumb-item active"><a href="/admin/produtos/">produtos</a></li>
+            <li class="breadcrumb-item active">Lista de Produtos</li>
+        </ol>
+        <div class="vertical-center">
+            <div class="container view">
+                <div class="justify-content-center">
+                    <div class="card">
+                        <div class="card-body">
+                            {% with messages = get_flashed_messages(with_categories=true) %}
+                                {% if messages %}
+                                    {% for category, message in messages %}
+                                    <div class="alert alert-{{ category }} alert-dismissible">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                        {{ message }}
+                                    </div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                            <table id="view_produtos" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Tipo</th>
+                                        <th>Setor</th>
+                                        <th>Preço</th>
+                                        <th>Quantidade</th>
+                                        <th>Data do Lote</th>
+                                        <th>Atualizar</th>
+                                        <th>Excluir</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for produto in produtos %}
+                                    <tr>
+                                        <td>{{ produto.name }}</td>
+                                        <td>{{ produto.type }}</td>
+                                        <td>{{ produto.sector }}</td>
+                                        <td>{{ produto.current_price }}</td>
+                                        <td>{{ produto.available_quantity }}</td>
+                                        <td>{{ produto.batch_date }}</td>
+                                        <td><i class="fa fa-refresh"></i><a href="/admin/produtos/update_produto/{{ produto.id }}"> Editar</a></td>
+                                        <td><i class="fa fa-trash"></i><a href="/admin/produtos/delete_produto/{{ produto.id }}" onclick="return confirm('Tem certeza que deseja excluir esse produto?');"> Excluir</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Tipo</th>
+                                        <th>Setor</th>
+                                        <th>Preço</th>
+                                        <th>Quantidade</th>
+                                        <th>Data do Lote</th>
+                                        <th>Atualizar</th>
+                                        <th>Excluir</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

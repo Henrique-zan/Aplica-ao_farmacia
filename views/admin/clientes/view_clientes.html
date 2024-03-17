@@ -1,0 +1,70 @@
+{% extends "clientes/clientes_index.html" %}
+{% block main %}
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    <div class="container-fluid px-4">
+        <h2 class="mt-4">Listagem de Clientes</h2>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item active"><a href="/admin/">Dashboard</a></li>
+            <li class="breadcrumb-item active"><a href="/admin/clientes/">clientes</a></li>
+            <li class="breadcrumb-item active">Lista de Clientes</li>
+        </ol>
+        <div class="vertical-center">
+            <div class="container view">
+                <div class="justify-content-center">
+                    <div class="card">
+                        <div class="card-body">
+                            {% with messages = get_flashed_messages(with_categories=true) %}
+                                {% if messages %}
+                                    {% for category, message in messages %}
+                                    <div class="alert alert-{{ category }} alert-dismissible">
+                                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                        {{ message }}
+                                    </div>
+                                    {% endfor %}
+                                {% endif %}
+                            {% endwith %}
+                            <table id="view_clientes" class="table table-striped table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>CPF</th>
+                                        <th>Nome</th>
+                                        <th>Endereço</th>
+                                        <th>Contato</th>
+                                        <th>Data de Nascimento</th>
+                                        <th>Atualizar</th>
+                                        <th>Excluir</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for cliente in clientes %}
+                                    <tr>
+                                        <td>{{ cliente.cpf }}</td>
+                                        <td>{{ cliente.name }}</td>
+                                        <td>{{ cliente.address }}</td>
+                                        <td>{{ cliente.contact }}</td>
+                                        <td>{{ cliente.birth_date }}</td>
+                                        <td><i class="fa fa-refresh"></i><a href="/admin/clientes/update_cliente/{{ cliente.cpf }}"> Editar</a></td>
+                                        <td><i class="fa fa-trash"></i><a href="/admin/clientes/delete_cliente/{{ cliente.cpf }}" onclick="return confirm('Tem certeza que deseja excluir esse cliente?');"> Excluir</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>CPF</th>
+                                        <th>Nome</th>
+                                        <th>Endereço</th>
+                                        <th>Contato</th>
+                                        <th>Data de Nascimento</th>
+                                        <th>Atualizar</th>
+                                        <th>Excluir</th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

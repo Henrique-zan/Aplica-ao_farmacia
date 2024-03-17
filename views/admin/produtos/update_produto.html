@@ -1,0 +1,46 @@
+<!-- home.html -->
+{% extends "produtos/produtos_index.html" %}
+{% import 'utils/1' as forms %}
+{% block main %}
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    <div class="vertical-center">
+        <div class="container view">
+            <div class="justify-content-center">
+                <div class="container-fluid px-4">
+                    <h3 class="mt-4">Cadastro de Produto</h3>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item"><a href="/admin/">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="/admin/produtos/">Iot</a></li>
+                        <li class="breadcrumb-item active">Atualização de Produto</li>
+                    </ol>
+                    <div class="container-fluid px-4">
+                        <div class="row">
+                            <div class="vertical-center">
+                                <div class="container">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            Atualizar Produto
+                                        </div>
+                                        <div class="card-body">
+                                            <form class="row g-3 justify-content-center" enctype="multipart/form-data" action="/admin/produtos/save_produto_changes" method="POST">
+                                                <input type="hidden"  id="id" name = "id" value="{{ produto[0].id }}">
+                                                {{ forms.input(label = 'Nome', name = 'name', id = 'name', value=produto[0].name, type='text', box_size = 6) }}
+                                                {{ forms.input(label = 'Tipo', name = 'type', id = 'type', value=produto[0].type, type='text', box_size = 3) }}
+                                                {{ forms.input(label = 'Setor', name = 'sector', id = 'sector', value=produto[0].sector, type='text', box_size = 3) }}
+                                                {{ forms.input(label = 'Preço', name = 'current_price', id = 'current_price', value=produto[0].current_price, type='text', box_size = 2) }}
+                                                {{ forms.input(label = 'Quantidade', name = 'available_quantity', id = 'available_quantity', value=produto[1].available_quantity, type='text', box_size = 2) }}
+                                                {{ forms.textarea(label = 'Data do Lote', name = 'batch_date', rows = 1, id = 'batch_date', value=produto[0].batch_date, box_size = 8) }}
+                                                {{ forms.button(label = 'Atualizar Produto', box_size = 12) }}
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,45 @@
+<!-- home.html -->
+{% extends "clientes/clientes_index.html" %}
+{% import 'utils/forms.html' as forms %}
+{% block main %}
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    <div class="vertical-center">
+        <div class="container view">
+            <div class="justify-content-center">
+                <div class="container-fluid px-4">
+                    <h3 class="mt-4">Cadastro de Cliente</h3>
+                    <ol class="breadcrumb mb-4">
+                        <li class="breadcrumb-item"><a href="/admin/">Dashboard</a></li>
+                        <li class="breadcrumb-item"><a href="/admin/clientes/">Clientes</a></li>
+                        <li class="breadcrumb-item active">Atualização de Cliente</li>
+                    </ol>
+                    <div class="container-fluid px-4">
+                        <div class="row">
+                            <div class="vertical-center">
+                                <div class="container">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            Atualizar Cliente
+                                        </div>
+                                        <div class="card-body">
+                                            <form class="row g-3 justify-content-center" enctype="multipart/form-data" action="/admin/clientes/save_cliente_changes" method="POST">
+                                                <input type="hidden"  id="cpf" name = "cpf" value="{{ cliente[0].cpf }}">
+                                                {{ forms.input(label = 'CPF', name = 'cpf', id = 'cpf', value=cliente[0].name, type='text', box_size = 6) }}    
+                                                {{ forms.input(label = 'Nome', name = 'name', id = 'name', value=cliente[0].type, type='text', box_size = 3) }}
+                                                {{ forms.input(label = 'Endereço', name = 'address', id = 'address', value=cliente[0].address, type='text', box_size = 3) }}
+                                                {{ forms.input(label = 'Contato', name = 'contact', id = 'contact', value=cliente[0].contact, type='text', box_size = 2) }}
+                                                {{ forms.input(label = 'Data de Nascimento', name = 'birth_date', id = 'birth_date', value=cliente[1].birth_date, type='text', box_size = 2) }}
+                                                {{ forms.button(label = 'Atualizar Cliente', box_size = 12) }}
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

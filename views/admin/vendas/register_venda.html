@@ -1,0 +1,43 @@
+{% extends "vendas/vendas_index.html" %}
+{% import 'utils/forms.html' as forms %}
+
+{% block main %}
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    
+    <div class="container-fluid px-4">
+    <h3 class="mt-4">Cadastro de Vendas</h3>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="/admin/">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="/admin/vendas/">Vendas</a></li>
+        <li class="breadcrumb-item active">Cadastro de Vendas</li>
+    </ol>
+    <div class="vertical-center">
+        <div class="container view">
+            <div class="justify-content-center">
+                <div class="container-fluid px-4">
+                    <div class="row">
+                        <div class="vertical-center">
+                            <div class="container">
+                                <div class="card">
+                                    <div class="card-header">
+                                    Cadastrar Nova Venda
+                                    </div>
+                                    <div class="card-body">
+                                        <form class="row g-3 justify-content-center" enctype="multipart/form-data" action="/admin/vendas/save_vendas" method="POST">
+                                            {{ forms.input(label = 'Id Produtos', name = 'id_produtos', id = 'id_produtos', type='text', box_size = 3) }}
+                                            {{ forms.input(label = 'CPF Cliente', name = 'cpf_cliente', id = 'cpf_cliente', type='text', box_size = 3) }}
+                                            {{ forms.input(label = 'CPF Funcionario', name = 'cpf_funcionario', id = 'cpf_funcionario', type='text', box_size = 2) }}
+                                            {{ forms.input(label = 'Valor', name = 'valor', id = 'valor', type='text', box_size = 2) }}
+                                            {{ forms.button(label = 'Cadastrar Venda', box_size = 12) }}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

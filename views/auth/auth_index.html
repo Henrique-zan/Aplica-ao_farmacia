@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" sizes="76x76" href="../static/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../static/assets/img/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('auth.static', filename='auth/css/auth.css') }}">
+</head>
+
+<body style="background: rgb(227,225,225) !important;
+background: radial-gradient(circle, rgba(227,225,225,1) 0%, rgba(201,180,180,1) 100%) !important;">
+    
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 col-lg-10">
+                    <div class="wrap d-md-flex">
+                            <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                                <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+                                  <h4 class="mb-5 text-white">A gente é bem mais que um hub!</h4>
+                                  <p class="mb-1">Feito para facilitar o controle da sua farmacia ou armazen, o Pharmhub vem
+                                    com o propósito de ser simples e efetivo nas suas aplicações.
+                                  </p>
+                                </div>
+                              </div>
+                        <div class="login-wrap p-4 p-md-5">
+                            {% block content %} 
+
+                            {% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="{{ url_for('auth.static', filename='auth/js/jquery-3.5.1.js') }}"></script>
+    <script src="{{ url_for('auth.static', filename='auth/js/bootstrap.min.js') }}"></script>
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" ></script>
+</body>
+</html>
+

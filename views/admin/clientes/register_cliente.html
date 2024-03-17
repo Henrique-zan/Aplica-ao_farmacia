@@ -1,0 +1,44 @@
+{% extends "clientes/clientes_index.html" %}
+{% import 'utils/forms.html' as forms %}
+
+{% block main %}
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    
+    <div class="container-fluid px-4">
+    <h3 class="mt-4">Cadastro de Cliente</h3>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="/admin/">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="/admin/clientes/">Clientes</a></li>
+        <li class="breadcrumb-item active">Cadastro de Cliente</li>
+    </ol>
+    <div class="vertical-center">
+        <div class="container view">
+            <div class="justify-content-center">
+                <div class="container-fluid px-4">
+                    <div class="row">
+                        <div class="vertical-center">
+                            <div class="container">
+                                <div class="card">
+                                    <div class="card-header">
+                                    Cadastrar Novo Cliente
+                                    </div>
+                                    <div class="card-body">
+                                        <form class="row g-3 justify-content-center" enctype="multipart/form-data" action="/admin/clientes/save_clientes" method="POST">
+                                            {{ forms.input(label = 'CPF', name = 'cpf', id = 'cpf', type='text', box_size = 6) }}
+                                            {{ forms.input(label = 'Nome', name = 'name', id = 'name', type='text', box_size = 3) }}
+                                            {{ forms.input(label = 'Endereço', name = 'address', id = 'address', type='text', box_size = 3) }}
+                                            {{ forms.input(label = 'Contato', name = 'contact', id = 'contact', type='text', box_size = 2) }}
+                                            {{ forms.input(label = 'Data de Nascimento', name = 'birth_date', id = 'birth_date', type='text', box_size = 2) }}
+                                            {{ forms.button(label = 'Cadastrar Cliente', box_size = 12) }}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

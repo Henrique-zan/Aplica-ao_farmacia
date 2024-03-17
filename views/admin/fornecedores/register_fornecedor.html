@@ -1,0 +1,43 @@
+{% extends "fornecedores/fornecedores_index.html" %}
+{% import 'utils/forms.html' as forms %}
+
+{% block main %}
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg">
+    
+    <div class="container-fluid px-4">
+    <h3 class="mt-4">Cadastro de Fornecedor</h3>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="/admin/">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="/admin/fornecedores/">Fornecedores</a></li>
+        <li class="breadcrumb-item active">Cadastro de Fornecedor</li>
+    </ol>
+    <div class="vertical-center">
+        <div class="container view">
+            <div class="justify-content-center">
+                <div class="container-fluid px-4">
+                    <div class="row">
+                        <div class="vertical-center">
+                            <div class="container">
+                                <div class="card">
+                                    <div class="card-header">
+                                    Cadastrar Novo Fornecedor
+                                    </div>
+                                    <div class="card-body">
+                                        <form class="row g-3 justify-content-center" enctype="multipart/form-data" action="/admin/fornecedores/save_fornecedores" method="POST">
+                                            {{ forms.input(label = 'CNPJ', name = 'cnpj', id = 'cnpj', type='text', box_size = 6) }}
+                                            {{ forms.input(label = 'Nome', name = 'nome', id = 'nome', type='text', box_size = 3) }}
+                                            {{ forms.input(label = 'Endereço', name = 'endereço', id = 'endereço', type='text', box_size = 3) }}
+                                            {{ forms.input(label = 'Contato', name = 'contato', id = 'contato', type='text', box_size = 2) }}
+                                            {{ forms.button(label = 'Cadastrar Fornecedor', box_size = 12) }}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
